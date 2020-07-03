@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QFileDialog, QMessageBox, QPushButton, QLabel
 from PyQt5.QtGui import QPixmap
 from Notifier import Notifier
+from PlotWindow import MplCanvas
 
 class AnalyzerMainWindow(QMainWindow):
     #main
@@ -42,7 +43,9 @@ class AnalyzerMainWindow(QMainWindow):
 
         #main widget
         self.leftWidget = QWidget()
-        self.rightWidget = QWidget()
+        self.rightWidget = MplCanvas()
+        self.rightWidget.axes.plot([0,1,2,3,4], [10,1,20,3,40])
+
         self.leftWidget.setLayout(self.leftLayout)
         self.rightWidget.setLayout(self.rightLayout)
 
